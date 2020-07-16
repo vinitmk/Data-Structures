@@ -1,9 +1,9 @@
 package com.mkv.datastructures.common;
 
-public interface IOHandler {
+public interface IOHandler<T> {
 
 	void print();
 
-	void createDataStructure();
+	void createDataStructure(T data);
 
 }
