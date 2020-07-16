@@ -2,7 +2,10 @@
 /Data-Structures.iml
 /LinkedList/LinkedList.iml
 /Common/Common.iml
+/BinarySearchTree/BinarySearchTree.iml
 /out/production/BinarySearchTree/com/mkv/datastructures/binarysearchtree/BinarySearchTreeNode.class
 /out/production/Common/com/mkv/datastructures/common/IOHandler.class
 /out/production/LinkedList/com/mkv/datastructures/linkedlist/LinkedListMain.class
 /out/production/LinkedList/com/mkv/datastructures/linkedlist/LinkedListNode.class
+/out/production/BinarySearchTree/BinarySearchTree.iml
+/out/production/BinarySearchTree/com/mkv/datastructures/binarysearchtree/BinarySearchTreeMain.class
