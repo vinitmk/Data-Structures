@@ -10,13 +10,34 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 
 	@Override
 	public void print() {
+		System.out.println("Inorder traversal ");
 		printInorder(root);
+		System.out.println("\nPreorder traversal ");
+		printPreoder(root);
+		System.out.println("\nPostorder traversal ");
+		printPostOrder(root);
+	}
+
+	private void printPreoder(BinarySearchTreeNode<Integer> root) {
+		if(null != root){
+			System.out.print(root.data + "\t");
+			printPreoder(root.left);
+			printPreoder(root.right);
+		}
+	}
+
+	private void printPostOrder(BinarySearchTreeNode<Integer> root) {
+		if(null != root){
+			printPreoder(root.left);
+			printPreoder(root.right);
+			System.out.print(root.data + "\t");
+		}
 	}
 
 	private void printInorder(BinarySearchTreeNode<Integer> root) {
 		if(null != root){
 			printInorder(root.left);
-			System.out.println(root.data);
+			System.out.print(root.data + "\t");
 			printInorder(root.right);
 		}
 	}
