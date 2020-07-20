@@ -42,6 +42,24 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		}
 	}
 
+	public void heightOfTree(){
+		int heightOfBinarySearchTree = calculateHeight(root);
+		System.out.print("\nHeight of Binary Search Tree is " + heightOfBinarySearchTree);
+	}
+
+	private int calculateHeight(BinarySearchTreeNode<Integer> root) {
+		int rightSubTreeHeight, leftSubTreeHeight;
+		if(root == null)
+			return 0;
+		else {
+			leftSubTreeHeight = calculateHeight(root.left);
+			// System.out.println(" root leftSubTreeHeight "+root.data+"\t"+leftSubTreeHeight);
+			rightSubTreeHeight = calculateHeight(root.right);
+			// System.out.println(" root rightSubTreeHeight "+root.data+"\t"+rightSubTreeHeight);
+			return leftSubTreeHeight > rightSubTreeHeight ? ++leftSubTreeHeight : ++rightSubTreeHeight;
+		}
+	}
+
 	@Override
 	public void createDataStructure(Integer data) {
 		root = createDataStructure(root, data);
@@ -69,6 +87,7 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		}
 
 		binarySearchTreeMain.print();
+		binarySearchTreeMain.heightOfTree();
 
 	}
 }
