@@ -1,6 +1,10 @@
 package com.mkv.datastructures.binarysearchtree;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
 import java.util.Scanner;
@@ -19,11 +23,28 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		printPreOrder(root);
 		System.out.println("\nPostorder traversal ");
 		printPostOrder(root);
-		System.out.println("\nLevelorder traversal ");
-		printLevelOrder(root);
+		System.out.println("\nLevelorder traversal using Queue");
+		printLevelOrderUsingQueue(root);
+		System.out.println("\nLevelorder traversal using HashMap");
+		Map<Integer, List<Integer>> nodesMap = new HashMap<>();
+		printLevelOrderUsingHashMap(root, 1, nodesMap);
+		for (int i = 1; i <= nodesMap.size(); i++){
+			System.out.print(nodesMap.get(i) + "\t");
+		}
+
 	}
 
-	private void printLevelOrder(BinarySearchTreeNode<Integer> root) {
+	private void printLevelOrderUsingHashMap(BinarySearchTreeNode<Integer> root, int level, Map<Integer, List<Integer>> nodeMap) {
+		if(null != root){
+			nodeMap.putIfAbsent(level, new ArrayList<>());
+			nodeMap.get(level).add(root.data);
+			printLevelOrderUsingHashMap(root.left, level+1, nodeMap);
+			printLevelOrderUsingHashMap(root.right, level+1, nodeMap);
+		}
+	}
+
+	// Print Level Order using Queue. O(n) Time and Space Complexity
+	private void printLevelOrderUsingQueue(BinarySearchTreeNode<Integer> root) {
 		BinarySearchTreeNode dataNode;
 		Queue<BinarySearchTreeNode> queue = new ArrayDeque<>();
 		queue.add(root);
@@ -36,8 +57,9 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 			if(null != dataNode && null != dataNode.right)
 				queue.add(dataNode.right);
 		}
-
 	}
+
+
 
 	private void printPreOrder(BinarySearchTreeNode<Integer> root) {
 		if(null != root){
