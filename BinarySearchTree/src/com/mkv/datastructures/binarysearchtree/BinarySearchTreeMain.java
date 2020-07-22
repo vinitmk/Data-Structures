@@ -1,5 +1,8 @@
 package com.mkv.datastructures.binarysearchtree;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.mkv.datastructures.common.IOHandler;
@@ -11,38 +14,56 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 	@Override
 	public void print() {
 		System.out.println("Inorder traversal ");
-		printInorder(root);
+		printInOrder(root);
 		System.out.println("\nPreorder traversal ");
-		printPreoder(root);
+		printPreOrder(root);
 		System.out.println("\nPostorder traversal ");
 		printPostOrder(root);
+		System.out.println("\nLevelorder traversal ");
+		printLevelOrder(root);
 	}
 
-	private void printPreoder(BinarySearchTreeNode<Integer> root) {
+	private void printLevelOrder(BinarySearchTreeNode<Integer> root) {
+		BinarySearchTreeNode dataNode;
+		Queue<BinarySearchTreeNode> queue = new ArrayDeque<>();
+		queue.add(root);
+		while(!queue.isEmpty()){
+			dataNode = queue.poll();
+			if(null != dataNode)
+				System.out.print(dataNode.data + "\t");
+			if(null != dataNode && null != dataNode.left)
+				queue.add(dataNode.left);
+			if(null != dataNode && null != dataNode.right)
+				queue.add(dataNode.right);
+		}
+
+	}
+
+	private void printPreOrder(BinarySearchTreeNode<Integer> root) {
 		if(null != root){
 			System.out.print(root.data + "\t");
-			printPreoder(root.left);
-			printPreoder(root.right);
+			printPreOrder(root.left);
+			printPreOrder(root.right);
 		}
 	}
 
 	private void printPostOrder(BinarySearchTreeNode<Integer> root) {
 		if(null != root){
-			printPreoder(root.left);
-			printPreoder(root.right);
+			printPostOrder(root.left);
+			printPostOrder(root.right);
 			System.out.print(root.data + "\t");
 		}
 	}
 
-	private void printInorder(BinarySearchTreeNode<Integer> root) {
+	private void printInOrder(BinarySearchTreeNode<Integer> root) {
 		if(null != root){
-			printInorder(root.left);
+			printInOrder(root.left);
 			System.out.print(root.data + "\t");
-			printInorder(root.right);
+			printInOrder(root.right);
 		}
 	}
 
-	public void heightOfTree(){
+	private void heightOfTree(){
 		int heightOfBinarySearchTree = calculateHeight(root);
 		System.out.print("\nHeight of Binary Search Tree is " + heightOfBinarySearchTree);
 	}
@@ -81,9 +102,14 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Input data for Linked List ");
-		while(scanner.hasNext()){
-			data = scanner.nextInt();
-			binarySearchTreeMain.createDataStructure(data);
+//		while(scanner.hasNext()){
+//			data = scanner.nextInt();
+//			binarySearchTreeMain.createDataStructure(data);
+//		}
+
+		for(int i = 0; i < 11; i++){
+			Random num = new Random();
+			binarySearchTreeMain.createDataStructure(num.nextInt(99));
 		}
 
 		binarySearchTreeMain.print();
