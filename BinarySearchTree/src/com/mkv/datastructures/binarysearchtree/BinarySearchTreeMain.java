@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Stack;
 
 import com.mkv.datastructures.common.IOHandler;
 
@@ -31,9 +32,31 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		for (int i = 1; i <= nodesMap.size(); i++){
 			System.out.print(nodesMap.get(i) + "\t");
 		}
+		System.out.println("\nReverse Levelorder traversal");
+		printReverseLevelOrder(root);
 
 	}
 
+	private void printReverseLevelOrder(BinarySearchTreeNode<Integer> root) {
+		BinarySearchTreeNode treeNode;
+		Stack<BinarySearchTreeNode> stack = new Stack<>();
+		Queue<BinarySearchTreeNode> queue = new ArrayDeque<>();
+		queue.add(root);
+		while (!queue.isEmpty()){
+			treeNode = queue.poll();
+			if(null != treeNode)
+				stack.push(treeNode);
+			if(null != treeNode && null != treeNode.left)
+				queue.add(treeNode.left);
+			if(null != treeNode && null != treeNode.right)
+				queue.add(treeNode.right);
+		}
+		while(!stack.empty())
+			System.out.print(stack.pop().data + "\t");
+
+	}
+
+	// Print Level Order using HashMap. O(n) Time and Space Complexity
 	private void printLevelOrderUsingHashMap(BinarySearchTreeNode<Integer> root, int level, Map<Integer, List<Integer>> nodeMap) {
 		if(null != root){
 			nodeMap.putIfAbsent(level, new ArrayList<>());
