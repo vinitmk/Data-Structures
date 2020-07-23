@@ -141,6 +141,18 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		return root;
 	}
 
+	private void sizeofTree() {
+		int sizeOfBinaryTree = calculateSize(root);
+		System.out.print("\nSize of tree is "+ sizeOfBinaryTree);
+	}
+
+	private int calculateSize(BinarySearchTreeNode<Integer> root) {
+		if(null != root){
+			return 1 + calculateSize(root.left) + calculateSize(root.right);
+		}
+		return 0;
+	}
+
 	public static void main(String[] args){
 		int data;
 		BinarySearchTreeMain binarySearchTreeMain = new BinarySearchTreeMain();
@@ -152,13 +164,16 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 //			binarySearchTreeMain.createDataStructure(data);
 //		}
 
-		for(int i = 0; i < 11; i++){
+		for(int i = 0; i < 10; i++){
 			Random num = new Random();
 			binarySearchTreeMain.createDataStructure(num.nextInt(99));
 		}
 
 		binarySearchTreeMain.print();
 		binarySearchTreeMain.heightOfTree();
+		binarySearchTreeMain.sizeofTree();
 
 	}
+
+
 }
