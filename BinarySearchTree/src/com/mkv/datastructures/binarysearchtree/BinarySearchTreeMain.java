@@ -156,7 +156,7 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 	public static void main(String[] args){
 		int data;
 		BinarySearchTreeMain binarySearchTreeMain = new BinarySearchTreeMain();
-
+		int findNum = 0;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Input data for Linked List ");
 //		while(scanner.hasNext()){
@@ -166,14 +166,38 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 
 		for(int i = 0; i < 10; i++){
 			Random num = new Random();
-			binarySearchTreeMain.createDataStructure(num.nextInt(99));
+			if(i == 9){
+				findNum = num.nextInt(99);
+				binarySearchTreeMain.createDataStructure(findNum);
+			}
+			else
+				binarySearchTreeMain.createDataStructure(num.nextInt(99));
+
+
 		}
 
 		binarySearchTreeMain.print();
 		binarySearchTreeMain.heightOfTree();
 		binarySearchTreeMain.sizeofTree();
+		binarySearchTreeMain.searchInTree(findNum);
 
 	}
 
+	private void searchInTree(int num) {
+		boolean exists = searchNumInTree(root, num);
+		System.out.println("\n Number "+num+" exists "+ exists);
+	}
+
+	private boolean searchNumInTree(BinarySearchTreeNode<Integer> root, int num) {
+		if(root != null) {
+			if(num == root.data)
+				return true;
+			if(num > root.data)
+				return searchNumInTree(root.right, num);
+			else
+				return searchNumInTree(root.left, num);
+		}
+		return false;
+	}
 
 }
