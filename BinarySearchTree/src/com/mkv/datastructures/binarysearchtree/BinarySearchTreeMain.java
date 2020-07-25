@@ -9,7 +9,6 @@ import java.util.Queue;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Stack;
-
 import com.mkv.datastructures.common.IOHandler;
 
 public class BinarySearchTreeMain implements IOHandler<Integer> {
@@ -34,7 +33,6 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		}
 		System.out.println("\nReverse Levelorder traversal");
 		printReverseLevelOrder(root);
-
 	}
 
 	private void printReverseLevelOrder(BinarySearchTreeNode<Integer> root) {
@@ -53,7 +51,6 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		}
 		while(!stack.empty())
 			System.out.print(stack.pop().data + "\t");
-
 	}
 
 	// Print Level Order using HashMap. O(n) Time and Space Complexity
@@ -81,8 +78,6 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 				queue.add(dataNode.right);
 		}
 	}
-
-
 
 	private void printPreOrder(BinarySearchTreeNode<Integer> root) {
 		if(null != root){
@@ -153,36 +148,6 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		return 0;
 	}
 
-	public static void main(String[] args){
-		int data;
-		BinarySearchTreeMain binarySearchTreeMain = new BinarySearchTreeMain();
-		int findNum = 0;
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Input data for Linked List ");
-//		while(scanner.hasNext()){
-//			data = scanner.nextInt();
-//			binarySearchTreeMain.createDataStructure(data);
-//		}
-
-		for(int i = 0; i < 10; i++){
-			Random num = new Random();
-			if(i == 9){
-				findNum = num.nextInt(99);
-				binarySearchTreeMain.createDataStructure(findNum);
-			}
-			else
-				binarySearchTreeMain.createDataStructure(num.nextInt(99));
-
-
-		}
-
-		binarySearchTreeMain.print();
-		binarySearchTreeMain.heightOfTree();
-		binarySearchTreeMain.sizeofTree();
-		binarySearchTreeMain.searchInTree(findNum);
-
-	}
-
 	private void searchInTree(int num) {
 		boolean exists = searchNumInTree(root, num);
 		System.out.println("\n Number "+num+" exists "+ exists);
@@ -199,5 +164,32 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		}
 		return false;
 	}
+
+	public static void main(String[] args){
+
+		Random num = new Random();
+		BinarySearchTreeMain binarySearchTreeMain = new BinarySearchTreeMain();
+		int findNum = num.nextInt(99);
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Input data for Linked List ");
+//		int data;
+//		while(scanner.hasNext()){
+//			data = scanner.nextInt();
+//			binarySearchTreeMain.createDataStructure(data);
+//		}
+		for(int i = 0; i < 10; i++){
+			if(i == 9){
+				binarySearchTreeMain.createDataStructure(findNum);
+			}
+			else
+				binarySearchTreeMain.createDataStructure(num.nextInt(99));
+		}
+		binarySearchTreeMain.print();
+		binarySearchTreeMain.heightOfTree();
+		binarySearchTreeMain.sizeofTree();
+		binarySearchTreeMain.searchInTree(findNum);
+	}
+
+
 
 }
