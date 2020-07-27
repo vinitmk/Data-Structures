@@ -165,6 +165,19 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		return false;
 	}
 
+	private void checkBinarySearchTree() {
+		boolean isBST = isBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+		System.out.println("\nIs Binary Search Tree "+isBST);
+	}
+
+	private boolean isBinarySearchTree(BinarySearchTreeNode<Integer> node, int minValue, int maxValue) {
+		if(node == null)
+			return true;
+		if(node.data <= minValue || node.data >= maxValue)
+			return false;
+		return isBinarySearchTree(node.left, minValue, node.data) && isBinarySearchTree(node.right, node.data, maxValue);
+	}
+
 	public static void main(String[] args){
 
 		Random num = new Random();
@@ -188,8 +201,6 @@ public class BinarySearchTreeMain implements IOHandler<Integer> {
 		binarySearchTreeMain.heightOfTree();
 		binarySearchTreeMain.sizeofTree();
 		binarySearchTreeMain.searchInTree(findNum);
+		binarySearchTreeMain.checkBinarySearchTree();
 	}
-
-
-
 }
