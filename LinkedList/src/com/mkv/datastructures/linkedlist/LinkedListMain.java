@@ -1,5 +1,6 @@
 package com.mkv.datastructures.linkedlist;
 
+import java.util.Random;
 import java.util.Scanner;
 
 import com.mkv.datastructures.common.IOHandler;
@@ -33,15 +34,20 @@ public class LinkedListMain implements IOHandler<Integer> {
 
 	public static void main(String[] args) {
 		int data;
+		Random num = new Random();
 		LinkedListMain llMain = new LinkedListMain();
+		for(int i = 0; i < 10; i++){
+			llMain.createDataStructure(num.nextInt(99));
+		}
 
-		Scanner scanner = new Scanner(System.in);
+/*
+	Scanner scanner = new Scanner(System.in);
 		System.out.println("Input data for Linked List ");
 		while(scanner.hasNext()){
 			data = scanner.nextInt();
 			llMain.createDataStructure(data);
 		}
-
+*/
 		llMain.print();
 	}
 }
