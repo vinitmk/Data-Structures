@@ -1,16 +1,20 @@
 package com.mkv.datastructures.linkedlist;
 
 import java.util.Random;
-import java.util.Scanner;
 
-import com.mkv.datastructures.common.IOHandler;
+public class LinkedListMain<T> {
 
-public class LinkedListMain implements IOHandler<Integer> {
+	private LinkedListNode<T> head;
 
-	private LinkedListNode head;
+	public LinkedListNode<T> getHead(){
+		return head;
+	}
 
-	@Override
-	public void print() {
+	public void setHead(LinkedListNode<T> head){
+		this.head = head;
+	}
+
+	private void print() {
 		if(null == head)
 			return;
 		LinkedListNode node = head;
@@ -20,22 +24,21 @@ public class LinkedListMain implements IOHandler<Integer> {
 		}
 	}
 
-	@Override
-	public void createDataStructure(Integer data) {
+	private void createDataStructure(T data) {
 		if(null == head)
-			head = new LinkedListNode(data);
+			head = new LinkedListNode<>(data);
 		else{
 			LinkedListNode node = head;
 			while(node.next != null)
 				node = node.next;
-			node.next = new LinkedListNode(data);
+			node.next = new LinkedListNode<>(data);
 		}
 	}
 
 	public static void main(String[] args) {
 		int data;
 		Random num = new Random();
-		LinkedListMain llMain = new LinkedListMain();
+		LinkedListMain<Integer> llMain = new LinkedListMain<>();
 		for(int i = 0; i < 10; i++){
 			llMain.createDataStructure(num.nextInt(99));
 		}

@@ -3,9 +3,21 @@ package com.mkv.datastructures.linkedlist;
 public class LinkedListNode<T> {
 
 	T data;
-	LinkedListNode<T> next;
+	LinkedListNode next;
 
-	LinkedListNode(T data){
+	public LinkedListNode(T data){
 		this.data = data;
+	}
+
+	public T getData(){
+		return data;
+	}
+
+	public LinkedListNode getNext(){
+		return next;
+	}
+
+	public void setNext(LinkedListNode next){
+		this.next = next;
 	}
 }
