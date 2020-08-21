@@ -6,25 +6,26 @@ public class LinkedListMain<T> {
 
 	private LinkedListNode<T> head;
 
-	public LinkedListNode<T> getHead(){
+	LinkedListNode<T> getHead(){
 		return head;
 	}
 
-	public void setHead(LinkedListNode<T> head){
+	void setHead(LinkedListNode<T> head){
 		this.head = head;
 	}
 
-	private void print() {
+	void print() {
 		if(null == head)
 			return;
 		LinkedListNode node = head;
 		while(null != node){
-			System.out.println(node.data);
+			System.out.print(node.data + " -> ");
 			node = node.next;
 		}
+		System.out.println("null");
 	}
 
-	private void createDataStructure(T data) {
+	void createDataStructure(T data) {
 		if(null == head)
 			head = new LinkedListNode<>(data);
 		else{
