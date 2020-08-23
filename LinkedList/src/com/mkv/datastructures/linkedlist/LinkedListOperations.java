@@ -22,6 +22,24 @@ public class LinkedListOperations<T> {
 		llMain.createDataStructure(num);
 	}
 
+	private void insertNthPosition(T num, int n) {
+		LinkedListNode t = llMain.getHead();
+		LinkedListNode node;
+		System.out.println("Inserting "+ num +" at position "+n);
+		if(n == 0 ) {
+			node = new LinkedListNode<T>(num);
+			node.next = llMain.getHead();
+			llMain.setHead(node);
+		}
+
+		while(--n > 1) {
+			t = t.next;
+		}
+		node = new LinkedListNode<>(num);
+		node.next = t.next;
+		t.next = node;
+	}
+
 	public static void main(String[] args) {
 		LinkedListOperations<Integer> main = new LinkedListOperations<>();
 
@@ -34,6 +52,9 @@ public class LinkedListOperations<T> {
 		main.print();
 		main.insertAtEndOfList(num.nextInt(1000));
 		main.print();
+		main.insertNthPosition(num.nextInt(1000), num.nextInt(10));
+		main.print();
+
 	}
 
 	private void print() {
