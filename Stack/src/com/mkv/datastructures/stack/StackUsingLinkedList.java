@@ -1,6 +1,6 @@
 package com.mkv.datastructures.stack;
 
-import com.mkv.datastructures.linkedlist.LinkedListNode;
+import com.mkv.datastructures.linkedlist.singly.LinkedListNode;
 
 
 public class StackUsingLinkedList<T> {

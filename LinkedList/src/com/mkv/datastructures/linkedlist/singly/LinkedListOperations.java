@@ -1,4 +1,4 @@
-package com.mkv.datastructures.linkedlist;
+package com.mkv.datastructures.linkedlist.singly;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class LinkedListOperations<T> {
 		LinkedListNode node;
 		System.out.println("Inserting "+ num +" at position "+n);
 		if(n == 0 ) {
-			node = new LinkedListNode<T>(num);
+			node = new LinkedListNode<>(num);
 			node.next = llMain.getHead();
 			llMain.setHead(node);
 		}

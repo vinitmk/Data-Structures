@@ -1,4 +1,4 @@
-package com.mkv.datastructures.linkedlist;
+package com.mkv.datastructures.linkedlist.singly;
 
 public class LinkedListNode<T> {
 
