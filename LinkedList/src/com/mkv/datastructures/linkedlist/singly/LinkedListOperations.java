@@ -111,6 +111,29 @@ public class LinkedListOperations<T> {
 		t.next = llMain.getHead();
 	}
 
+	private int countLoopLength() {
+		int count = 0;
+		// createLoopInLinkedList();
+		if(detectLoopInLinkedList()) {
+			LinkedListNode<T> fast = llMain.getHead();
+			LinkedListNode<T> slow = llMain.getHead();
+			while (fast != null && slow != null && fast.next != null) {
+				fast = fast.next.next;
+				slow = slow.next;
+				if(fast == slow)
+					break;
+			}
+			if(slow != null)
+				slow = slow.next;
+			count++;
+			while(slow != null && fast != slow) {
+				slow = slow.next;
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static void main(String[] args) {
 		LinkedListOperations<Integer> main = new LinkedListOperations<>();
 
@@ -131,6 +154,7 @@ public class LinkedListOperations<T> {
 		System.out.println("Length of LinkedList "+main.linkedListLengthRecursive());
 		main.printMiddleOfLinkedList();
 		System.out.println("Loop exists "+ main.detectLoopInLinkedList());
+		System.out.println("Loop exists "+ main.detectLoopInLinkedList() +" with size "+ main.countLoopLength());
 	}
 
 	private void print() {
