@@ -3,7 +3,7 @@ package com.mkv.datastructures.linkedlist.singly;
 public class LinkedListNode<T> {
 
 	T data;
-	LinkedListNode next;
+	LinkedListNode<T> next;
 
 	public LinkedListNode(T data){
 		this.data = data;
@@ -13,11 +13,11 @@ public class LinkedListNode<T> {
 		return data;
 	}
 
-	public LinkedListNode getNext(){
+	public LinkedListNode<T> getNext(){
 		return next;
 	}
 
-	public void setNext(LinkedListNode next){
+	public void setNext(LinkedListNode<T> next){
 		this.next = next;
 	}
 }

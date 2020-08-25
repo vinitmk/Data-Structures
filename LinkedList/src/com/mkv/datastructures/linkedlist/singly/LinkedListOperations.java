@@ -23,7 +23,7 @@ public class LinkedListOperations<T> {
 	}
 
 	private void insertNthPosition(T num, int n) {
-		LinkedListNode t = llMain.getHead();
+		LinkedListNode<T> t = llMain.getHead();
 		LinkedListNode<T> node;
 		System.out.println("Inserting "+ num +" at position "+n);
 		if(n == 0 ) {
@@ -42,7 +42,7 @@ public class LinkedListOperations<T> {
 
 	private void deleteNthPosition(int position) {
 		System.out.println("Deleting from position "+position);
-		LinkedListNode t;
+		LinkedListNode<T> t;
 		if( position == 1) {
 			t = llMain.getHead().getNext();
 			llMain.setHead(t);
@@ -78,6 +78,18 @@ public class LinkedListOperations<T> {
 		return 1 + calcLength(head.next);
 	}
 
+	private void printMiddleOfLinkedList() {
+		LinkedListNode<T> fast = llMain.getHead();
+		LinkedListNode<T> slow = llMain.getHead();
+
+		while(null != fast && null != fast.next) {
+			fast = fast.next.next;
+			slow = slow.next;
+
+		}
+		System.out.println("Middle of LinkedList is "+slow.data);
+	}
+
 	public static void main(String[] args) {
 		LinkedListOperations<Integer> main = new LinkedListOperations<>();
 
@@ -96,8 +108,7 @@ public class LinkedListOperations<T> {
 		main.print();
 		System.out.println("Length of LinkedList "+main.linkedListLength());
 		System.out.println("Length of LinkedList "+main.linkedListLengthRecursive());
-
-
+		main.printMiddleOfLinkedList();
 	}
 
 	private void print() {
