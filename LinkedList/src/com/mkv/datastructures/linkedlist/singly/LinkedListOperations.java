@@ -24,7 +24,7 @@ public class LinkedListOperations<T> {
 
 	private void insertNthPosition(T num, int n) {
 		LinkedListNode t = llMain.getHead();
-		LinkedListNode node;
+		LinkedListNode<T> node;
 		System.out.println("Inserting "+ num +" at position "+n);
 		if(n == 0 ) {
 			node = new LinkedListNode<>(num);
@@ -54,8 +54,28 @@ public class LinkedListOperations<T> {
 			}
 			t.next = t.next.next;
 		}
+	}
 
+	private int linkedListLength() {
+		int count = 0;
+		LinkedListNode<T> t = llMain.getHead();
+		while(t != null) {
+			count++;
+			t = t.next;
+		}
+		return count;
+	}
 
+	private int linkedListLengthRecursive() {
+		int length;
+		length = calcLength(llMain.getHead());
+		return length;
+	}
+
+	private int calcLength(LinkedListNode<T> head) {
+		if(head == null)
+			return 0;
+		return 1 + calcLength(head.next);
 	}
 
 	public static void main(String[] args) {
@@ -74,6 +94,9 @@ public class LinkedListOperations<T> {
 		main.print();
 		main.deleteNthPosition(num.nextInt(10));
 		main.print();
+		System.out.println("Length of LinkedList "+main.linkedListLength());
+		System.out.println("Length of LinkedList "+main.linkedListLengthRecursive());
+
 
 	}
 
