@@ -40,6 +40,24 @@ public class LinkedListOperations<T> {
 		t.next = node;
 	}
 
+	private void deleteNthPosition(int position) {
+		System.out.println("Deleting from position "+position);
+		LinkedListNode t;
+		if( position == 1) {
+			t = llMain.getHead().getNext();
+			llMain.setHead(t);
+		}
+		else {
+			t = llMain.getHead();
+			while(--position > 1) {
+				t = t.next;
+			}
+			t.next = t.next.next;
+		}
+
+
+	}
+
 	public static void main(String[] args) {
 		LinkedListOperations<Integer> main = new LinkedListOperations<>();
 
@@ -53,6 +71,8 @@ public class LinkedListOperations<T> {
 		main.insertAtEndOfList(num.nextInt(1000));
 		main.print();
 		main.insertNthPosition(num.nextInt(1000), num.nextInt(10));
+		main.print();
+		main.deleteNthPosition(num.nextInt(10));
 		main.print();
 
 	}
