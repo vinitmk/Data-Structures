@@ -90,6 +90,27 @@ public class LinkedListOperations<T> {
 		System.out.println("Middle of LinkedList is "+slow.data);
 	}
 
+	private boolean detectLoopInLinkedList() {
+		// createLoopInLinkedList();
+		LinkedListNode<T> fast = llMain.getHead();
+		LinkedListNode<T> slow = llMain.getHead();
+
+		while (fast != null && slow != null && fast.next != null) {
+			fast = fast.next.next;
+			slow = slow.next;
+			if(fast == slow)
+				return true;
+		}
+		return false;
+	}
+
+	private void createLoopInLinkedList() {
+		LinkedListNode<T> t = llMain.getHead();
+		while(t.next != null)
+			t = t.next;
+		t.next = llMain.getHead();
+	}
+
 	public static void main(String[] args) {
 		LinkedListOperations<Integer> main = new LinkedListOperations<>();
 
@@ -109,6 +130,7 @@ public class LinkedListOperations<T> {
 		System.out.println("Length of LinkedList "+main.linkedListLength());
 		System.out.println("Length of LinkedList "+main.linkedListLengthRecursive());
 		main.printMiddleOfLinkedList();
+		System.out.println("Loop exists "+ main.detectLoopInLinkedList());
 	}
 
 	private void print() {
