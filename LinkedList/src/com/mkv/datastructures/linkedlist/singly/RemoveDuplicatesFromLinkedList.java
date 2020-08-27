@@ -42,7 +42,5 @@ public class RemoveDuplicatesFromLinkedList<T> {
 		main.insertInLinkedList(60);
 
 		main.removeDuplicates();
-
-
 	}
 }
