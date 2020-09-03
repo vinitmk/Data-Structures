@@ -39,7 +39,7 @@ public class SwapLinkedListNodes<T> {
 		list.createDataStructure(105);
 		list.createDataStructure(115);
 		list.print();
-		main.swapNodes(list, 55, 115);
+		main.swapNodes(list, 65, 105);
 		list.print();
 
 	}
