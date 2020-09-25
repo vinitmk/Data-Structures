@@ -15,4 +15,36 @@ class GraphNode<T> {
 		isVisited = false;
 		neighbors = new ArrayList<>();
 	}
+
+	T getData() {
+		return data;
+	}
+
+	void setData(T data) {
+		this.data = data;
+	}
+
+	int getIndex() {
+		return index;
+	}
+
+	void setIndex(int index) {
+		this.index = index;
+	}
+
+	List<GraphNode> getNeighbors() {
+		return neighbors;
+	}
+
+	void setNeighbors(List<GraphNode> neighbors) {
+		this.neighbors = neighbors;
+	}
+
+	boolean isVisited() {
+		return isVisited;
+	}
+
+	void setVisited(boolean visited) {
+		isVisited = visited;
+	}
 }
