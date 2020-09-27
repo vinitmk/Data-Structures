@@ -25,8 +25,10 @@ class DFSTraversal<T> {
 
 	void dfsTraversal() {
 		for (GraphNode<T> n: nodeList) {
-			if(!n.isVisited())
-				dfsInterative(n);
+			if(!n.isVisited()) {
+				//dfsInterative(n);
+				dfsRecursive(n);
+			}
 		}
 	}
 
@@ -45,6 +47,16 @@ class DFSTraversal<T> {
 					t.setVisited(true);
 					stack.push(t);
 				}
+			}
+		}
+	}
+
+	private void dfsRecursive(GraphNode<T> node) {
+		node.setVisited(true);
+		System.out.println(node.getData());
+		for (GraphNode<T> n: node.getNeighbors()) {
+			if(!n.isVisited()) {
+				dfsRecursive(n);
 			}
 		}
 	}
