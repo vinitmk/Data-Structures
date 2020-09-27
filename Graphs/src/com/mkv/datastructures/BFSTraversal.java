@@ -25,23 +25,23 @@ class BFSTraversal<T> {
 	}
 
 	void bfsTraversal() {
-		for(GraphNode node: nodeList)
+		for(GraphNode<T> node: nodeList)
 			if(!node.isVisited())
 				bfs(node);
 			
 	}
 
-	private void bfs(GraphNode node) {
-		GraphNode temp;
-		List<GraphNode> neighbors;
-		Queue<GraphNode> queue = new ArrayDeque<>();
+	private void bfs(GraphNode<T> node) {
+		GraphNode<T> temp;
+		List<GraphNode<T>> neighbors;
+		Queue<GraphNode<T>> queue = new ArrayDeque<>();
 		queue.add(node);
 		while(!queue.isEmpty()) {
 			temp = queue.poll();
 			temp.setVisited(true);
 			System.out.println(temp.getData());
 			neighbors = temp.getNeighbors();
-			for(GraphNode n: neighbors)
+			for(GraphNode<T> n: neighbors)
 				if(!n.isVisited()) {
 					n.setVisited(true);
 					queue.add(n);

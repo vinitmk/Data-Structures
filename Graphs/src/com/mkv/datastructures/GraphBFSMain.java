@@ -1,6 +1,6 @@
 package com.mkv.datastructures;
 
-public class GraphMain {
+public class GraphBFSMain {
 
 	public static void main(String[] args) {
 		int size = 10;
@@ -23,5 +23,6 @@ public class GraphMain {
 		adjList.addUndirectedEdge(8,9);
 
 		adjList.bfsTraversal();
+
 	}
 }

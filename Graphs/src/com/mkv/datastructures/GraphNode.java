@@ -6,7 +6,7 @@ import java.util.List;
 class GraphNode<T> {
 	private T data;
 	private int index;
-	private List<GraphNode> neighbors;
+	private List<GraphNode<T>> neighbors;
 	private boolean isVisited;
 
 	GraphNode(T data, int index) {
@@ -32,11 +32,11 @@ class GraphNode<T> {
 		this.index = index;
 	}
 
-	List<GraphNode> getNeighbors() {
+	List<GraphNode<T>> getNeighbors() {
 		return neighbors;
 	}
 
-	void setNeighbors(List<GraphNode> neighbors) {
+	void setNeighbors(List<GraphNode<T>> neighbors) {
 		this.neighbors = neighbors;
 	}
 
