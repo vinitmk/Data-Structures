@@ -4,7 +4,7 @@ public class GraphMain {
 
 	public static void main(String[] args) {
 		int size = 10;
-		GraphAdjacenyList<String> adjList = new GraphAdjacenyList<>();
+		BFSTraversal<String> adjList = new BFSTraversal<>();
 
 		for(int i = 0; i < size; i++)
 			adjList.createGraphNodes("V"+i, i);

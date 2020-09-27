@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-class GraphAdjacenyList<T> {
+class BFSTraversal<T> {
 
 	private List<GraphNode<T>> nodeList;
 
-	GraphAdjacenyList() {
+	BFSTraversal() {
 		nodeList = new ArrayList<>();
 	}
 
