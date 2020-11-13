@@ -43,7 +43,6 @@ public class BinaryTreeMain<T> {
 		System.out.println();
 		printLevelOrder(root);
 		System.out.println();
-
 	}
 
 	private void printInorder(BinaryTreeNode<T> root) {
@@ -71,16 +70,14 @@ public class BinaryTreeMain<T> {
 	}
 
 	private void printLevelOrder(BinaryTreeNode<T> root) {
-		if(root != null) {
+		if (root != null) {
 			Queue<BinaryTreeNode<T>> queue = new ArrayDeque<>();
 			queue.add(root);
-			while(!queue.isEmpty()) {
+			while (!queue.isEmpty()) {
 				BinaryTreeNode<T> node = queue.poll();
 				System.out.print(node.data + " ");
-				if(node.left != null)
-					queue.add(node.left);
-				if(node.right != null)
-					queue.add(node.right);
+				if (node.left != null) queue.add(node.left);
+				if (node.right != null) queue.add(node.right);
 			}
 		}
 	}
