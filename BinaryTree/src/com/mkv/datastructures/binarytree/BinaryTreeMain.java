@@ -82,18 +82,107 @@ public class BinaryTreeMain<T> {
 		}
 	}
 
+	private BinaryTreeNode<T> getDeepestNode() {
+		BinaryTreeNode<T> presentNode = null;
+		if(root != null) {
+			Queue<BinaryTreeNode<T>> queue = new ArrayDeque<>();
+			queue.add(root);
+			while(!queue.isEmpty()) {
+				presentNode = queue.poll();
+				if(presentNode.left != null)
+					queue.add(presentNode.left);
+				if(presentNode.right != null)
+					queue.add(presentNode.right);
+			}
+		}
+		return presentNode;
+	}
+
+	private T deleteDeepestNode() {
+		T data = null;
+		if(root != null) {
+			Queue<BinaryTreeNode<T>> queue = new ArrayDeque<>();
+			queue.add(root);
+			BinaryTreeNode<T> presentNode = null, previousNode;
+			while(! queue.isEmpty()) {
+				previousNode = presentNode;
+				presentNode = queue.poll();
+				if(presentNode.left == null) {
+          			if (null != previousNode) {
+            			data = previousNode.right.data;
+            			previousNode.right = null;
+          			}
+          			return data;
+				}
+				else if(presentNode.right == null) {
+					if (null != previousNode) {
+						data = presentNode.left.data;
+						presentNode.left = null;
+					}
+					return data;
+				}
+				queue.add(presentNode.left);
+				queue.add(presentNode.right);
+			}
+		}
+		System.out.println("Nothing to Delete");
+		return null;
+	}
+
+	private void deleteNode(T num) {
+		deleteNodeFromTree(root, num);
+	}
+
+	private void deleteNodeFromTree(BinaryTreeNode<T> root, T num) {
+		BinaryTreeNode<T> presentNode;
+		if(root != null) {
+			Queue<BinaryTreeNode<T>> queue = new ArrayDeque<>();
+			queue.add(root);
+			while(! queue.isEmpty()) {
+				presentNode = queue.poll();
+				if(presentNode.data == num) {
+					presentNode.data = getDeepestNode().data;
+					deleteDeepestNode();
+					break;
+				}
+				if(presentNode.left != null)
+					queue.add(presentNode.left);
+				if(presentNode.right != null)
+					queue.add(presentNode.right);
+			}
+		}
+	}
+
+	private void deleteTree() {
+		root = null;
+	}
+
 	public static void main(String[] args) {
 		Random num = new Random();
+		int deleteNum = num.nextInt(99);
 		BinaryTreeMain<Integer> binaryTreeMain = new BinaryTreeMain<>();
-		System.out.println("Input data for Linked List ");
+		System.out.print("Input data for Linked List  ");
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i <= 9; i++) {
 			int n = num.nextInt(99);
-			System.out.print(n + " ");
-
+			// System.out.print(n + " ");
+			if(i == 6)
+				binaryTreeMain.insert(deleteNum);
 			binaryTreeMain.insert(n);
 		}
 		System.out.println();
 		binaryTreeMain.print();
+
+		System.out.println("Delete number "+ deleteNum);
+		binaryTreeMain.deleteNode(deleteNum);
+		binaryTreeMain.print();
+
+		System.out.println("Deepest node " + binaryTreeMain.getDeepestNode().data);
+
+		System.out.println("Deleting deepest node " + binaryTreeMain.deleteDeepestNode());
+		binaryTreeMain.print();
+
+		binaryTreeMain.deleteTree();
+
 	}
 }
