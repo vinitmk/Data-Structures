@@ -1,6 +1,6 @@
 package com.mkv.datastructures.heap;
 
-public class MinHeapUsingArray<T extends Comparable<T>> {
+class MinHeapUsingArray<T extends Comparable<T>> {
 
 	private T[] array;
 	private int sizeOfHeap;
@@ -10,16 +10,16 @@ public class MinHeapUsingArray<T extends Comparable<T>> {
 		this.array = array;
 	}
 
-	public int sizeOfArray() {
+	private int sizeOfArray() {
 		return array.length;
 	}
 
-	public int sizeOfTree() {
+	private int sizeOfTree() {
 		System.out.println("Size Of Tree: " + sizeOfHeap);
 		return sizeOfHeap;
 	}
 
-	public boolean isHeapEmpty() {
+	private boolean isHeapEmpty() {
 		if (sizeOfHeap <= 0) {
 			System.out.println("Tree is empty !");
 			return true;
@@ -29,7 +29,7 @@ public class MinHeapUsingArray<T extends Comparable<T>> {
 		}
 	}
 
-	public void deleteheap() {
+	private void deleteheap() {
 		this.array = null;
 		System.out.println("Heap has been deleted !");
 	}
@@ -45,23 +45,62 @@ public class MinHeapUsingArray<T extends Comparable<T>> {
 
 	private void heapifyBottomToTop(int index) {
 		int parent = index/2;
-		if(index > 1) {
-			if(array[index].compareTo(array[parent]) < 0) {
-				T tmp = array[index];
-				array[index] = array[parent];
-				array[parent] = tmp;
-			}
+		// We are at root of the tree. Hence no more Heapifying is required.
+		if (index <= 1) {
+			return;
 		}
-		heapifyTopToBottom(parent);
+		if(array[index].compareTo(array[parent]) < 0) {
+			T tmp = array[index];
+			array[index] = array[parent];
+			array[parent] = tmp;
+		}
+		heapifyBottomToTop(parent);
+	}
+
+	T extractHeadOfHeap() {
+		if(sizeOfHeap == 0) {
+			System.out.println("Heap is empty");
+			return null;
+		}
+		System.out.println("Head of Heap is "+ array[1]);
+		System.out.println("Extracting it now...");
+		T extractedValue = array[1];
+		array[1] = array[sizeOfHeap];
+		sizeOfHeap--;
+		heapifyTopToBottom(1);
+		System.out.println("Successfully extracted value from Heap.");
+		return extractedValue;
 	}
 
 	private void heapifyTopToBottom(int index) {
 		int left = index * 2;
 		int right = (index * 2) + 1;
+		int smallestChildIndex;
 
+		if(sizeOfHeap < left) //If there is no child of this node, then nothing to do. Just return.
+			return;
+		else if(sizeOfHeap == left){ //If there is only left child of this node, then do a comparison and return.
+			if(array[index].compareTo(array[left]) > 0) {
+				T tmp = array[index];
+				array[index] = array[left];
+				array[left] = tmp;
+			}
+			return;
+		}
+		else {	//If both children are present
+			if(array[left].compareTo(array[right]) < 0)
+				smallestChildIndex = left;	// left child is smaller
+			else
+				smallestChildIndex = right;	// right child is smaller
+
+			if(array[index].compareTo(array[smallestChildIndex]) > 0) { //If Parent is greater than smallest child, then swap
+				T tmp = array[index];
+				array[index] = array[smallestChildIndex];
+				array[smallestChildIndex] = tmp;
+			}
+		}
+		heapifyTopToBottom(smallestChildIndex);
 	}
-
-	void extractHeadOfHeap() {}
 
 	void printHeap() {
 		System.out.println("Printing all the elements of this Heap...");
