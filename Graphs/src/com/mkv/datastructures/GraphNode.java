@@ -7,7 +7,17 @@ class GraphNode<T> {
 	private T data;
 	private int index;
 	private List<GraphNode<T>> neighbors;
+
+	GraphNode<T> getParent() {
+		return parent;
+	}
+
+	void setParent(GraphNode<T> parent) {
+		this.parent = parent;
+	}
+
 	private boolean isVisited;
+	private GraphNode<T> parent;
 
 	GraphNode(T data, int index) {
 		this.data = data;
