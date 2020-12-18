@@ -3,11 +3,11 @@ package com.mkv.datastructures;
 import java.util.List;
 import java.util.PriorityQueue;
 
-class SSSPByDijkstra<T> {
+class Dijkstra<T> {
 
 	private List<WeightedNode<T>> nodelist;
 
-	SSSPByDijkstra(List<WeightedNode<T>> nodelist) {
+	Dijkstra(List<WeightedNode<T>> nodelist) {
 		this.nodelist = nodelist;
 	}
 

@@ -2,11 +2,11 @@ package com.mkv.datastructures;
 
 import java.util.List;
 
-class SSSPByBellmanFord<T> {
+class BellmanFord<T> {
 
 	private List<WeightedNode<T>> nodelist;
 
-	SSSPByBellmanFord(List<WeightedNode<T>> nodeList) {
+	BellmanFord(List<WeightedNode<T>> nodeList) {
 		this.nodelist = nodeList;
 		for (WeightedNode aNode : nodeList) {
 			aNode.setDistance(Integer.MAX_VALUE / 10);

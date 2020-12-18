@@ -15,7 +15,7 @@ public class SSSPByDijkstraMain {
 		nodeList.add(new WeightedNode<>("D"));
 		nodeList.add(new WeightedNode<>("E"));
 
-		SSSPByDijkstra<String> shortestPath = new SSSPByDijkstra<>(nodeList);
+		Dijkstra<String> shortestPath = new Dijkstra<>(nodeList);
 
 		shortestPath.addWeightedEdge(0,2,6); //Add A-> C , weight 6
 		shortestPath.addWeightedEdge(0,3,3); //Add A-> D , weight 3

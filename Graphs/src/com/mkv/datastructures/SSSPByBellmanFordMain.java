@@ -15,7 +15,7 @@ public class SSSPByBellmanFordMain {
 		nodeList.add(new WeightedNode<>("D"));
 		nodeList.add(new WeightedNode<>("E"));
 
-		SSSPByBellmanFord<String> shortestPath = new SSSPByBellmanFord<>(nodeList);
+		BellmanFord<String> shortestPath = new BellmanFord<>(nodeList);
 
 		shortestPath.addWeightedEdge(0,2,6); //Add A-> C , weight 6
 		shortestPath.addWeightedEdge(1,0,3); //Add B-> A , weight 3

@@ -7,7 +7,7 @@ public class SSSPByBFSMain {
 	public static void main(String[] args) {
 		int size = 10;
 
-		SSSPByBFS<String> shortestPath = new SSSPByBFS<>();
+		BFS<String> shortestPath = new BFS<>();
 
 		for(int i = 0; i < size; i++)
 			shortestPath.createGraphNodes("V"+i, i);

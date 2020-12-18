@@ -5,11 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-class SSSPByBFS<T> {
+class BFS<T> {
 
 	private List<GraphNode<T>> nodeList;
 
-	SSSPByBFS() {
+	BFS() {
 		nodeList = new ArrayList<>();
 	}
 
