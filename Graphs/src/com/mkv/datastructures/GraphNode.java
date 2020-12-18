@@ -10,6 +10,10 @@ class GraphNode<T> {
 	private boolean isVisited;
 	private GraphNode<T> parent;
 
+	private GraphNode() {
+
+	}
+
 	GraphNode(T data, int index) {
 		this.data = data;
 		this.index = index;
@@ -21,7 +25,7 @@ class GraphNode<T> {
 		return data;
 	}
 
-	void setData(T data) {
+	private void setData(T data) {
 		this.data = data;
 	}
 
@@ -29,7 +33,7 @@ class GraphNode<T> {
 		return index;
 	}
 
-	void setIndex(int index) {
+	private void setIndex(int index) {
 		this.index = index;
 	}
 
@@ -37,7 +41,7 @@ class GraphNode<T> {
 		return neighbors;
 	}
 
-	void setNeighbors(List<GraphNode<T>> neighbors) {
+	private void setNeighbors(List<GraphNode<T>> neighbors) {
 		this.neighbors = neighbors;
 	}
 
@@ -57,5 +61,14 @@ class GraphNode<T> {
 		this.parent = parent;
 	}
 
-
+	@Override
+	protected Object clone() {
+		GraphNode<T> cloneGraph = new GraphNode<>();
+		cloneGraph.setData(this.data);
+		cloneGraph.setIndex(this.index);
+		cloneGraph.setNeighbors(this.neighbors);
+		cloneGraph.setVisited(this.isVisited);
+		cloneGraph.setParent(this.parent);
+		return cloneGraph;
+	}
 }

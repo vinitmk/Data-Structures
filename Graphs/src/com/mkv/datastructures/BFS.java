@@ -61,4 +61,5 @@ class BFS<T> {
 	void shortestPathBFSByIndex(int index) {
 		shortestPathBFS(nodeList.get(index));
 	}
+
 }
