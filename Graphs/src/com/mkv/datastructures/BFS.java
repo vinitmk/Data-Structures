@@ -13,6 +13,14 @@ class BFS<T> {
 		nodeList = new ArrayList<>();
 	}
 
+	List<GraphNode<T>> getNodeList() {
+		return nodeList;
+	}
+
+	void setNodeList(List<GraphNode<T>> nodeList) {
+		this.nodeList = nodeList;
+	}
+
 	void createGraphNodes(T data, int index) {
 		nodeList.add(new GraphNode<>(data, index));
 	}
