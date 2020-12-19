@@ -3,7 +3,7 @@ package com.mkv.datastructures;
 import java.util.ArrayList;
 import java.util.List;
 
-public class APSPByDijkstra<T> {
+public class APSPByDijkstraMain<T> {
 
 	public static void main(String[] args) {
 
