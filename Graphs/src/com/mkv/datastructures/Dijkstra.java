@@ -32,13 +32,18 @@ class Dijkstra<T> {
 		PriorityQueue<WeightedNode<T>> queue = new PriorityQueue<>(nodelist);
 		while(!queue.isEmpty()) {
 			WeightedNode<T> currentNode = queue.poll();
+
 			for(WeightedNode<T> neighbor: currentNode.getNeighbors()) {
 				if(neighbor.getDistance() > currentNode.getDistance() + currentNode.getWeightMap().get(neighbor)) {
+					//System.out.println("dist "+ currentNode.getData() +" "+currentNode.getDistance() +" neighbor dist "+neighbor.getData()+"  "+ currentNode.getWeightMap().get(neighbor));
 					neighbor.setDistance(currentNode.getDistance() + currentNode.getWeightMap().get(neighbor));
-					neighbor.setParent(currentNode);
-					//Refresh the Priority Queue since distance was recalculated
-					queue.remove(neighbor);
-					queue.add(neighbor);
+					//System.out.println("neighbor "+ neighbor.getData()+" set parent"+ currentNode.getData() +" dist " + neighbor.getDistance());
+					if(!neighbor.getData().equals(node.getData())) {
+						neighbor.setParent(currentNode);
+						//Refresh the Priority Queue since distance was recalculated
+						queue.remove(neighbor);
+						queue.add(neighbor);
+					}
 				}
 			}
 		}
