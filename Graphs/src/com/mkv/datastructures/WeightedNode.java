@@ -18,7 +18,7 @@ public class WeightedNode<T> implements Comparable<WeightedNode<T>> {
 		neighbors = new ArrayList<>();
 		weightMap = new HashMap<>();
 		isVisited = false;
-		distance = Integer.MAX_VALUE;
+		distance = Integer.MAX_VALUE/10;
 	}
 
 	T getData() {
