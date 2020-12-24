@@ -1,4 +1,6 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.traversal;
+
+import com.mkv.datastructures.algorithms.DFSTraversal;
 
 public class GraphDFSMain {
 
