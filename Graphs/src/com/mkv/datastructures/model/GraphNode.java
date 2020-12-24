@@ -1,9 +1,9 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class GraphNode<T> {
+public class GraphNode<T> {
 	private T data;
 	private int index;
 	private List<GraphNode<T>> neighbors;
@@ -14,14 +14,14 @@ class GraphNode<T> {
 
 	}
 
-	GraphNode(T data, int index) {
+	public GraphNode(T data, int index) {
 		this.data = data;
 		this.index = index;
 		isVisited = false;
 		neighbors = new ArrayList<>();
 	}
 
-	T getData() {
+	public T getData() {
 		return data;
 	}
 
@@ -29,7 +29,7 @@ class GraphNode<T> {
 		this.data = data;
 	}
 
-	int getIndex() {
+	public int getIndex() {
 		return index;
 	}
 
@@ -37,7 +37,7 @@ class GraphNode<T> {
 		this.index = index;
 	}
 
-	List<GraphNode<T>> getNeighbors() {
+	public List<GraphNode<T>> getNeighbors() {
 		return neighbors;
 	}
 
@@ -45,24 +45,24 @@ class GraphNode<T> {
 		this.neighbors = neighbors;
 	}
 
-	boolean isVisited() {
+	public boolean isVisited() {
 		return isVisited;
 	}
 
-	void setVisited(boolean visited) {
+	public void setVisited(boolean visited) {
 		isVisited = visited;
 	}
 
-	GraphNode<T> getParent() {
+	public GraphNode<T> getParent() {
 		return parent;
 	}
 
-	void setParent(GraphNode<T> parent) {
+	public void setParent(GraphNode<T> parent) {
 		this.parent = parent;
 	}
 
 	@Override
-	protected Object clone() {
+	public Object clone() {
 		GraphNode<T> cloneGraph = new GraphNode<>();
 		cloneGraph.setData(this.data);
 		cloneGraph.setIndex(this.index);

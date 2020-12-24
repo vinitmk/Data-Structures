@@ -1,4 +1,4 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ public class WeightedNode<T> implements Comparable<WeightedNode<T>> {
 	private WeightedNode<T> parent;
 	private int distance;
 
-	WeightedNode(T data) {
+	public WeightedNode(T data) {
 		this.data = data;
 		neighbors = new ArrayList<>();
 		weightMap = new HashMap<>();
@@ -21,51 +21,51 @@ public class WeightedNode<T> implements Comparable<WeightedNode<T>> {
 		distance = Integer.MAX_VALUE/10;
 	}
 
-	T getData() {
+	public T getData() {
 		return data;
 	}
 
-	void setData(T data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 
-	List<WeightedNode<T>> getNeighbors() {
+	public List<WeightedNode<T>> getNeighbors() {
 		return neighbors;
 	}
 
-	void setNeighbors(List<WeightedNode<T>> neighbors) {
+	public void setNeighbors(List<WeightedNode<T>> neighbors) {
 		this.neighbors = neighbors;
 	}
 
-	Map<WeightedNode<T>, Integer> getWeightMap() {
+	public Map<WeightedNode<T>, Integer> getWeightMap() {
 		return weightMap;
 	}
 
-	void setWeightMap(Map<WeightedNode<T>, Integer> weightMap) {
+	public void setWeightMap(Map<WeightedNode<T>, Integer> weightMap) {
 		this.weightMap = weightMap;
 	}
 
-	boolean isVisited() {
+	public boolean isVisited() {
 		return isVisited;
 	}
 
-	void setVisited(boolean visited) {
+	public void setVisited(boolean visited) {
 		isVisited = visited;
 	}
 
-	WeightedNode<T> getParent() {
+	public WeightedNode<T> getParent() {
 		return parent;
 	}
 
-	void setParent(WeightedNode<T> parent) {
+	public void setParent(WeightedNode<T> parent) {
 		this.parent = parent;
 	}
 
-	int getDistance() {
+	public int getDistance() {
 		return distance;
 	}
 
-	void setDistance(int distance) {
+	public void setDistance(int distance) {
 		this.distance = distance;
 	}
 
