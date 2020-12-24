@@ -1,4 +1,7 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.APSP;
+
+import com.mkv.datastructures.algorithms.BFS;
+import com.mkv.datastructures.model.GraphNode;
 
 public class APSPByBFSMain {
 
