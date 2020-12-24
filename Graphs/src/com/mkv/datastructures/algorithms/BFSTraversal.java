@@ -1,30 +1,32 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.algorithms;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-class BFSTraversal<T> {
+import com.mkv.datastructures.model.GraphNode;
+
+public class BFSTraversal<T> {
 
 	private List<GraphNode<T>> nodeList;
 
-	BFSTraversal() {
+	public BFSTraversal() {
 		nodeList = new ArrayList<>();
 	}
 
-	void createGraphNodes(T data, int index) {
+	public void createGraphNodes(T data, int index) {
 		nodeList.add(new GraphNode<>(data, index));
 	}
 
-	void addUndirectedEdge(int i, int j) {
+	public void addUndirectedEdge(int i, int j) {
 		GraphNode<T> firstNode = nodeList.get(i);
 		GraphNode<T> secondNode = nodeList.get(j);
 		firstNode.getNeighbors().add(secondNode);
 		secondNode.getNeighbors().add(firstNode);
 	}
 
-	void bfsTraversal() {
+	public void bfsTraversal() {
 		for(GraphNode<T> node: nodeList)
 			if(!node.isVisited())
 				bfs(node);

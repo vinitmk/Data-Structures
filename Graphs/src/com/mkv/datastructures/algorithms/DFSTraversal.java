@@ -1,29 +1,31 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.algorithms;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-class DFSTraversal<T> {
+import com.mkv.datastructures.model.GraphNode;
+
+public class DFSTraversal<T> {
 
 	private List<GraphNode<T>> nodeList;
 
-	DFSTraversal() {
+	public DFSTraversal() {
 		nodeList = new ArrayList<>();
 	}
 
-	void createGraphNodes(T data, int index) {
+	public void createGraphNodes(T data, int index) {
 		nodeList.add(new GraphNode<>(data,index));
 	}
 
-	void addUndirectedEdge(int i, int j) {
+	public void addUndirectedEdge(int i, int j) {
 		GraphNode<T> first = nodeList.get(i);
 		GraphNode<T> second = nodeList.get(j);
 		first.getNeighbors().add(second);
 		second.getNeighbors().add(first);
 	}
 
-	void dfsTraversal() {
+	public void dfsTraversal() {
 		for (GraphNode<T> n: nodeList) {
 			if(!n.isVisited()) {
 				//dfsInterative(n);

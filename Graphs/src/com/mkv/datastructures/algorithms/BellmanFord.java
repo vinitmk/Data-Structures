@@ -1,19 +1,21 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.algorithms;
 
 import java.util.List;
 
-class BellmanFord<T> {
+import com.mkv.datastructures.model.WeightedNode;
+
+public class BellmanFord<T> {
 
 	private List<WeightedNode<T>> nodelist;
 
-	BellmanFord(List<WeightedNode<T>> nodeList) {
+	public BellmanFord(List<WeightedNode<T>> nodeList) {
 		this.nodelist = nodeList;
 		for (WeightedNode aNode : nodeList) {
 			aNode.setDistance(Integer.MAX_VALUE / 10);
 		}
 	}
 
-	void addWeightedEdge(int s, int d, int w) {
+	public void addWeightedEdge(int s, int d, int w) {
 		WeightedNode<T> source = nodelist.get(s);
 		WeightedNode<T> destination = nodelist.get(d);
 		source.getNeighbors().add(destination);
@@ -27,7 +29,7 @@ class BellmanFord<T> {
 		} else System.out.print(node.getData());
 	}
 
-	void shortestPathByBellManFord(WeightedNode<T> sourceNode) {
+	public void shortestPathByBellManFord(WeightedNode<T> sourceNode) {
 		sourceNode.setDistance(0);
 		for (int i = 0; i < nodelist.size() - 1; i++) {
 			for (WeightedNode<T> presentNode : nodelist) {

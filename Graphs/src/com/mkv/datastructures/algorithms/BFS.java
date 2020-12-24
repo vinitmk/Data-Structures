@@ -1,19 +1,21 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.algorithms;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-class BFS<T> {
+import com.mkv.datastructures.model.GraphNode;
+
+public class BFS<T> {
 
 	private List<GraphNode<T>> nodeList;
 
-	BFS() {
+	public BFS() {
 		nodeList = new ArrayList<>();
 	}
 
-	List<GraphNode<T>> getNodeList() {
+	public List<GraphNode<T>> getNodeList() {
 		return nodeList;
 	}
 
@@ -21,11 +23,11 @@ class BFS<T> {
 		this.nodeList = nodeList;
 	}
 
-	void createGraphNodes(T data, int index) {
+	public void createGraphNodes(T data, int index) {
 		nodeList.add(new GraphNode<>(data, index));
 	}
 
-	void addUndirectedEdge(int s, int d) {
+	public void addUndirectedEdge(int s, int d) {
 		GraphNode<T> firstNode = nodeList.get(s);
 		GraphNode<T> secondNode = nodeList.get(d);
 		firstNode.getNeighbors().add(secondNode);
@@ -58,7 +60,7 @@ class BFS<T> {
 		System.out.print(currentNode.getIndex()+" ");
 	}
 
-	void shortestPathBFSByIndex(int index) {
+	public void shortestPathBFSByIndex(int index) {
 		shortestPathBFS(nodeList.get(index));
 	}
 

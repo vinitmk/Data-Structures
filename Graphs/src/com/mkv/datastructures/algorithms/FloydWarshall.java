@@ -1,23 +1,25 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.algorithms;
 
 import java.util.List;
 
-class FloydWarshall<T> {
+import com.mkv.datastructures.model.WeightedNode;
+
+public class FloydWarshall<T> {
 
 	private List<WeightedNode<T>> nodeList;
 
-	FloydWarshall(List<WeightedNode<T>> nodeList) {
+	public FloydWarshall(List<WeightedNode<T>> nodeList) {
 		this.nodeList = nodeList;
 	}
 
-	void addWeightedEdge(int source, int destination, int weight) {
+	public void addWeightedEdge(int source, int destination, int weight) {
 		WeightedNode<T> first = nodeList.get(source);
 		WeightedNode<T> second = nodeList.get(destination);
 		first.getNeighbors().add(second);
 		first.getWeightMap().put(second, weight);
 	}
 
-	void shortestPathByFloydWarshall() {
+	public void shortestPathByFloydWarshall() {
 
 		int size = nodeList.size();
 		int[][] weights = new int[size][size];

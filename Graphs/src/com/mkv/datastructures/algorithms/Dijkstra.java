@@ -1,17 +1,19 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.algorithms;
 
 import java.util.List;
 import java.util.PriorityQueue;
 
-class Dijkstra<T> {
+import com.mkv.datastructures.model.WeightedNode;
+
+public class Dijkstra<T> {
 
 	private List<WeightedNode<T>> nodelist;
 
-	Dijkstra(List<WeightedNode<T>> nodelist) {
+	public Dijkstra(List<WeightedNode<T>> nodelist) {
 		this.nodelist = nodelist;
 	}
 
-	void addWeightedEdge(int s, int d, int w) {
+	public void addWeightedEdge(int s, int d, int w) {
 		WeightedNode<T> source = nodelist.get(s);
 		WeightedNode<T> destination = nodelist.get(d);
 		source.getNeighbors().add(destination);
@@ -27,7 +29,7 @@ class Dijkstra<T> {
 			System.out.print(node.getData());
 	}
 
-	void shortestPathByDijkstra(WeightedNode<T> node) {
+	public void shortestPathByDijkstra(WeightedNode<T> node) {
 		node.setDistance(0);
 		PriorityQueue<WeightedNode<T>> queue = new PriorityQueue<>(nodelist);
 		while(!queue.isEmpty()) {
