@@ -1,7 +1,10 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.APSP;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mkv.datastructures.algorithms.FloydWarshall;
+import com.mkv.datastructures.model.WeightedNode;
 
 public class APSPByFloydWarshallMain {
 

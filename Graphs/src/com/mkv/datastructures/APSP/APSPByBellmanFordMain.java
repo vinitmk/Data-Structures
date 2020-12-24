@@ -1,9 +1,12 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.APSP;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class APSPByBellmanFord {
+import com.mkv.datastructures.algorithms.BellmanFord;
+import com.mkv.datastructures.model.WeightedNode;
+
+public class APSPByBellmanFordMain {
 
 	public static void main(String[] args) {
 
