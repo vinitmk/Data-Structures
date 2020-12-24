@@ -1,6 +1,8 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.SSSP;
 
 import java.util.Random;
+
+import com.mkv.datastructures.algorithms.BFS;
 
 public class SSSPByBFSMain {
 
