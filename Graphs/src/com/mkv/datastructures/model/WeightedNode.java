@@ -12,6 +12,7 @@ public class WeightedNode<T> implements Comparable<WeightedNode<T>> {
 	private boolean isVisited;
 	private WeightedNode<T> parent;
 	private int distance;
+	private DisjointSet<T> set;
 
 	public WeightedNode(T data) {
 		this.data = data;
@@ -67,6 +68,14 @@ public class WeightedNode<T> implements Comparable<WeightedNode<T>> {
 
 	public void setDistance(int distance) {
 		this.distance = distance;
+	}
+
+	public DisjointSet<T> getSet() {
+		return set;
+	}
+
+	void setSet(DisjointSet<T> set) {
+		this.set = set;
 	}
 
 	@Override
