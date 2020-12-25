@@ -1,4 +1,4 @@
-package com.mkv.datastructures.TopologicalSort;
+package com.mkv.datastructures.topologicalsort;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
