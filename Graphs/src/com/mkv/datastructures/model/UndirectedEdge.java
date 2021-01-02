@@ -38,6 +38,6 @@ public class UndirectedEdge<T> {
 
 	@Override
 	public String toString() {
-		return "Edge (" + first + "," + second + "), weight=" + weight + "]";
+		return "Edge (" + first.getData() + "," + second.getData() + "), weight=" + weight + "]";
 	}
 }

@@ -1,5 +1,6 @@
 package com.mkv.datastructures.algorithms;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -13,11 +14,12 @@ public class Kruskal<T> {
 	private List<WeightedNode<T>> nodeList;
 	private List<UndirectedEdge<T>> edgeList;
 
-	Kruskal(List<WeightedNode<T>> nodeList) {
+	public Kruskal(List<WeightedNode<T>> nodeList) {
 		this.nodeList = nodeList;
+		this.edgeList = new ArrayList<>();
 	}
 
-	void addWeightedUndirectedEdge(int firstIndex, int secondIndex, int weight) {
+	public void addWeightedUndirectedEdge(int firstIndex, int secondIndex, int weight) {
 		UndirectedEdge<T> undirectedEdge = new UndirectedEdge<>(nodeList.get(firstIndex), nodeList.get(secondIndex), weight);
 		WeightedNode<T> first = undirectedEdge.getFirst();
 		WeightedNode<T> second = undirectedEdge.getSecond();
@@ -28,7 +30,7 @@ public class Kruskal<T> {
 		edgeList.add(undirectedEdge);
 	}
 
-	void kruskalMST() {
+	public void kruskalMST() {
 
 		// make disjoint sets for each node
 		DisjointSet<T> ds = new DisjointSet<>();
