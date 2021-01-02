@@ -19,9 +19,9 @@ public class KruskalMain {
 		nodeList.add(new WeightedNode<>("E"));
 		nodeList.add(new WeightedNode<>("F"));
 		nodeList.add(new WeightedNode<>("G"));
-		nodeList.add(new WeightedNode<>("H"));
+/*		nodeList.add(new WeightedNode<>("H"));
 		nodeList.add(new WeightedNode<>("I"));
-		nodeList.add(new WeightedNode<>("J"));
+		nodeList.add(new WeightedNode<>("J"));*/
 
 		Kruskal<String> minimumSpanningTree = new Kruskal<>(nodeList);
 
@@ -34,6 +34,10 @@ public class KruskalMain {
 		minimumSpanningTree.addWeightedUndirectedEdge(2,3,15);
 		minimumSpanningTree.addWeightedUndirectedEdge(2,4,6);
 		minimumSpanningTree.addWeightedUndirectedEdge(3,4,8);
+
+		minimumSpanningTree.addWeightedUndirectedEdge(1,5,9);
+		minimumSpanningTree.addWeightedUndirectedEdge(5,6,16);
+		minimumSpanningTree.addWeightedUndirectedEdge(3,6,7);
 
 		System.out.println("Running Kruskal's Algo on the graph: ");
 		minimumSpanningTree.kruskalMST();
