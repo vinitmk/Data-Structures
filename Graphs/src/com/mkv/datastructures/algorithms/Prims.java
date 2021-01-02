@@ -9,7 +9,7 @@ public class Prims<T> {
 
 	private List<WeightedNode<T>> nodeList;
 
-	Prims(List<WeightedNode<T>> nodeList) {
+	public Prims(List<WeightedNode<T>> nodeList) {
 		this.nodeList = nodeList;
 	}
 
@@ -24,7 +24,7 @@ public class Prims<T> {
 		second.getWeightMap().put(first, weight);
 	}
 
-	void primsMST(WeightedNode<T> node) {
+	public void primsMST(WeightedNode<T> node) {
 
 		for(WeightedNode<T> n: nodeList)
 			n.setDistance(Integer.MAX_VALUE);
@@ -57,8 +57,11 @@ public class Prims<T> {
 		}
 		int cost = 0;
 		// print table of node with minimum distance and shortest path from source
-		for (WeightedNode nodeToCheck : nodeList) {
-			System.out.println("Node " + nodeToCheck.getData() + ", key: " + nodeToCheck.getDistance() + ", Parent: " + nodeToCheck.getParent().getData());
+		for (WeightedNode<T> nodeToCheck : nodeList) {
+			System.out.print("Node " + nodeToCheck.getData() + ", key: " + nodeToCheck.getDistance());
+			if(nodeToCheck.getParent() != null)
+				System.out.print(", Parent: " + nodeToCheck.getParent().getData());
+			System.out.println();
 			cost = cost + nodeToCheck.getDistance();
 		}
 		System.out.println("\nTotal cost of MST: " + cost);
