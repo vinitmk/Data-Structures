@@ -62,7 +62,7 @@ public class Prims<T> {
 			if(nodeToCheck.getParent() != null)
 				System.out.print(", Parent: " + nodeToCheck.getParent().getData());
 			System.out.println();
-			cost = cost + nodeToCheck.getDistance();
+			cost += nodeToCheck.getDistance();
 		}
 		System.out.println("\nTotal cost of MST: " + cost);
 	}
