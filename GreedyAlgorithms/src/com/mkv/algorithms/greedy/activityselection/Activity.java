@@ -6,6 +6,12 @@ public class Activity implements Comparable<Activity> {
 	private int startTime;
 	private int endTime;
 
+	Activity(String activityName, int startTime, int endTime) {
+		this.activityName = activityName;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
+
 	String getActivityName() {
 		return activityName;
 	}
