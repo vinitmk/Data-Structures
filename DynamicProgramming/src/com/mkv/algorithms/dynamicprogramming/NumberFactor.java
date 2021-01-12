@@ -3,7 +3,7 @@ package com.mkv.algorithms.dynamicprogramming;
 public class NumberFactor {
 
 	private int topDownApproach(int n) {
-		int[] dpArray = new int[n+1];
+		int[] dpArray = new int[n + 1];
 		return getNWaysRecursive(n, dpArray);
 	}
 
@@ -21,11 +21,21 @@ public class NumberFactor {
 		return dpArray[n];
 	}
 
+	private int bottomUpApproach(int n) {
+		int[] dpArray = new int[n + 1];
+		dpArray[0] = dpArray[1] = dpArray[2] = 1;
+		dpArray[3] = 2;
+		for(int i = 4; i <= n; i++)
+			dpArray[i] = dpArray[i - 1] + dpArray[i - 3] + dpArray[i - 4];
+		return dpArray[n];
+	}
+
 
 	public static void main(String[] args) {
 
 		NumberFactor main = new NumberFactor();
 
 		System.out.println("Number of ways for 7 is "+ main.topDownApproach(7));
+		System.out.println("Number of ways for 7 is "+ main.bottomUpApproach(7));
 	}
 }
