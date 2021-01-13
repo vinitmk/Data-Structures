@@ -1,6 +1,8 @@
 package com.mkv.algorithms.dynamicprogramming;
 
 
+import java.util.Arrays;
+
 public class ConvertOneStringToAnother {
 
 	private int topDownApproach(String s1, String s2) {
@@ -29,8 +31,43 @@ public class ConvertOneStringToAnother {
 		return dpArray[index1][index2];
 	}
 
+	private int bottomUpApproach(String s1, String s2) {
+		int[][] dp = new int[s1.length() + 1][s2.length()+1];
+
+		for(int i = 0; i <= s1.length(); i++)
+			dp[i][0] = i;
+
+		for(int i = 0; i <= s2.length(); i++)
+			dp[0][i] = i;
+
+		printArray(dp);
+
+		for(int i = 1; i <= s1.length(); i++) {
+			for(int j = 1; j <= s2.length(); j++) {
+				if(s1.charAt(i-1) == s2.charAt(j-1)) {
+					dp[i][j] = dp[i-1][j-1];
+				}
+				else {
+					dp[i][j] = 1 + Math.min(dp[i-1][j], Math.min(dp[i][j-1], dp[i-1][j-1]));
+				}
+			}
+		}
+		System.out.println("\n\n\n");
+		printArray(dp);
+
+		return dp[s1.length()][s2.length()];
+	}
+
+	private void printArray(int[][] dp) {
+
+		for(int[] row: dp)
+			System.out.println(Arrays.toString(row));
+
+	}
+
 	public static void main(String[] args) {
 		ConvertOneStringToAnother main = new ConvertOneStringToAnother();
-		System.out.println(main.topDownApproach("table", "tbres"));
+		//System.out.println(main.topDownApproach("table", "tbres"));
+		main.bottomUpApproach("table", "tbres");
 	}
 }
