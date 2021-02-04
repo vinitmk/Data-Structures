@@ -53,5 +53,13 @@ public class LinkedListMain<T> {
 		}
 */
 		llMain.print();
+
+		LinkedListMain<String> llMain1 = new LinkedListMain<>();
+		llMain1.createDataStructure("Hi");
+		llMain1.createDataStructure("This");
+		llMain1.createDataStructure("Is");
+		llMain1.createDataStructure("Test");
+		llMain1.print();
+
 	}
 }
