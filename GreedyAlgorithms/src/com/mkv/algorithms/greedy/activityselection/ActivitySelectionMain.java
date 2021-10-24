@@ -17,8 +17,6 @@ public class ActivitySelectionMain {
 		activityList.add(new Activity("A5", 5, 7));
 		activityList.add(new Activity("A6", 8, 9));
 
-		for(Activity act: activityList)
-			System.out.println(act);
 
 		ActivitySelection selection = new ActivitySelection();
 		selection.selectActivity(activityList);

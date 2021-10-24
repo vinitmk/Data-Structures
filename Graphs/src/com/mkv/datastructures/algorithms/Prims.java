@@ -3,7 +3,7 @@ package com.mkv.datastructures.algorithms;
 import java.util.List;
 import java.util.PriorityQueue;
 
-import com.mkv.datastructures.model.WeightedNode;
+import com.mkv.datastructures.sorting.model.WeightedNode;
 
 public class Prims<T> {
 

@@ -1,4 +1,4 @@
-package com.mkv.datastructures.model;
+package com.mkv.datastructures.sorting.model;
 
 import java.util.ArrayList;
 import java.util.Comparator;

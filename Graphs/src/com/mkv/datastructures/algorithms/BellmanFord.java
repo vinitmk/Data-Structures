@@ -2,7 +2,7 @@ package com.mkv.datastructures.algorithms;
 
 import java.util.List;
 
-import com.mkv.datastructures.model.WeightedNode;
+import com.mkv.datastructures.sorting.model.WeightedNode;
 
 public class BellmanFord<T> {
 
@@ -10,7 +10,7 @@ public class BellmanFord<T> {
 
 	public BellmanFord(List<WeightedNode<T>> nodeList) {
 		this.nodelist = nodeList;
-		for (WeightedNode aNode : nodeList) {
+		for (WeightedNode<T> aNode : nodeList) {
 			aNode.setDistance(Integer.MAX_VALUE / 10);
 		}
 	}

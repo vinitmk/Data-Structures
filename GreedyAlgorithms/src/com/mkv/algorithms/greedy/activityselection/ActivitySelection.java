@@ -9,6 +9,10 @@ class ActivitySelection {
 
 		if(activityList.size() > 0) {
 			Collections.sort(activityList);
+
+			for(Activity act: activityList)
+				System.out.println(act);
+
 			Activity previousActivity = activityList.get(0);
 
 			System.out.println("\n\nRecommended Schedule:\n" + previousActivity);

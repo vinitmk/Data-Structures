@@ -8,7 +8,9 @@ public class HouseThief {
 
 		int currentHouseValue = houseValues[currentIndex] + getMaximumValue(houseValues, currentIndex + 2);
 		int nexHouseValue = getMaximumValue(houseValues, currentIndex+1);
-		return Math.max(currentHouseValue, nexHouseValue);
+		int val = Math.max(currentHouseValue, nexHouseValue);
+		System.out.print("  "+ val);
+		return val;
 	}
 
 	public static void main(String[] args) {

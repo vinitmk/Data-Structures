@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-import com.mkv.datastructures.model.GraphNode;
+import com.mkv.datastructures.sorting.model.GraphNode;
 
 public class BFSTraversal<T> {
 

@@ -1,4 +1,4 @@
-package com.mkv.datastructures.model;
+package com.mkv.datastructures.sorting.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class DisjointSet<T> {
 
 	public void printAllNodesOfThisSet() {
 		System.out.println("Printing all nodes of the set: ");
-		for(WeightedNode node: nodes) {
+		for(WeightedNode<T> node: nodes) {
 			System.out.print(node.getData() + "  ");
 		}
 		System.out.println();

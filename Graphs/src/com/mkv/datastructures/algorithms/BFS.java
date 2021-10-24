@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import com.mkv.datastructures.model.GraphNode;
+import com.mkv.datastructures.sorting.model.GraphNode;
 
 public class BFS<T> {
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mkv.datastructures.algorithms.Dijkstra;
-import com.mkv.datastructures.model.WeightedNode;
+import com.mkv.datastructures.sorting.model.WeightedNode;
 
 public class SSSPByDijkstraMain {
 

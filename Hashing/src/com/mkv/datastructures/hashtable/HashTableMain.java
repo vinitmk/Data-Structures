@@ -10,6 +10,8 @@ public class HashTableMain {
 		hashTable.add("this",4 );
 		hashTable.add("hi",5 );
 
+		System.out.println("  code "+hashTable.getBucketIndex("a1111bcdd"));
+
 		System.out.println(hashTable.size());
 		System.out.println(hashTable.remove("this"));
 		System.out.println(hashTable.remove("this"));

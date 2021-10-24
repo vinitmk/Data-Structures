@@ -1,4 +1,4 @@
-package com.mkv.datastructures;
+package com.mkv.datastructures.sorting;
 
 import java.util.Arrays;
 

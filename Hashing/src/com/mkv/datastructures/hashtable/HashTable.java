@@ -21,7 +21,7 @@ class HashTable<K, V> {
 
 	}
 
-	private int getBucketIndex(K key) {
+	public int getBucketIndex(K key) {
 		return key.hashCode() % numOfBuckets;
 	}
 

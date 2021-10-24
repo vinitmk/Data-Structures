@@ -3,8 +3,8 @@ package com.mkv.datastructures.MST;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mkv.datastructures.model.DisjointSet;
-import com.mkv.datastructures.model.WeightedNode;
+import com.mkv.datastructures.sorting.model.DisjointSet;
+import com.mkv.datastructures.sorting.model.WeightedNode;
 
 public class DisjointSetMain {
 
